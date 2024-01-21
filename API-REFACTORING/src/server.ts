@@ -2,6 +2,7 @@ import 'express-async-errors';
 /* import cors from 'cors'; */
 import Express, { NextFunction, Request, Response } from 'express';
 import router from './routes';
+/* import { connect } from './connectionRequest'; */
 /* import { UserRepository } from './repositories/UserRepository'; */
 /* import Usercontrollers from './controllers/Usercontrollers'; */
 /* import Dadoscontrollers from './controllers/Dadoscontrollers';*/
@@ -61,3 +62,4 @@ app.delete('/deleteDados', Dadoscontrollers.deleteDados);
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+

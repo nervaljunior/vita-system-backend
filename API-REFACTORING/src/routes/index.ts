@@ -7,5 +7,4 @@ const router = Router();
 router.post('/user/createUser',UserController.createUser);
 router.post('/user/session', AuthController.authUser);
 
-
 export default router;
