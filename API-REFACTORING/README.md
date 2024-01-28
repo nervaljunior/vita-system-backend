@@ -57,3 +57,12 @@ npm install cors
 └─ 📄  yarn.lock
 
 if in archiqueture Model, View, Control, used this connection with database. in this project i'm use in model, an ORM for connection with database, the PRISMA ORM. Furthermore im use in model type interface and control services, repository. Finally, use database,mysql for mariaDB
+
+
+
+
+NA APLICAÇÃO GERAL IREMOS UTILIZAR A SEGUINTE ARQUITETURA DE ARQUIOS 
+
+├── backend
+├── dev-env
+└── frontend
