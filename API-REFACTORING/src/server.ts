@@ -1,5 +1,5 @@
 import 'express-async-errors';
-/* import cors from 'cors'; */
+import cors from 'cors';
 import Express, { NextFunction, Request, Response } from 'express';
 import router from './routes';
 /* import { connect } from './connectionRequest'; */
@@ -15,6 +15,7 @@ import router from './routes';
 const app = Express();
 const PORT = 8000;
 app.use(Express.json());
+app.use(Express.urlencoded({ extended: true }));
 
 app.use((error: Error,req: Request,res: Response, next: NextFunction)=>{
 
@@ -24,16 +25,26 @@ app.use((error: Error,req: Request,res: Response, next: NextFunction)=>{
     });
     next();
 });
-/* app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
+app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
   res.header('Access-Control-Allow-Origin', "*");
   res.header("Access-Control-Allow-Headers", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   app.use(cors());
   next();
-}); */
+});
 
-app.get('/', (req, res) => {
-    return res.send({ message: 'hello world' });
+app.get('/', (req: Request, res: Response, next: NextFunction) => {
+  const M = {
+    status: 'success',
+    data: {
+      id: 1,
+      name: 'Exemplo API',
+      version: '1.0.0',
+      description: 'API DE REGISTRO DE DADOS',
+    },
+  };
+
+  res.json(M);
 });
 
 app.use(router);
@@ -60,6 +71,6 @@ app.put('/updateDados', Dadoscontrollers.updateDados);
 app.delete('/deleteDados', Dadoscontrollers.deleteDados);
  */
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
 
